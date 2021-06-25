@@ -24,8 +24,23 @@ module.exports = {
         },
       },
       {
-        test: /\.css$/,
-        use: [MiniCssExtractPlugin.loader, 'css-loader'],
+        // test: /\.css$/,
+        // use: [MiniCssExtractPlugin.loader, 'css-loader'],
+        test: /\.(scss|css)$/,
+        use: ['style-loader', 'css-loader', 'postcss-loader', 'sass-loader'],
+      },
+
+      // Images
+
+      // {
+      //   test: /\.(?:ico|gif|png|jpg|jpeg)$/i,
+      //   type: 'asset/resource',
+      // },
+      {
+        test: /\.(?:ico|gif|png|jpg|jpeg)$/i,
+        use: {
+          loader: 'url-loader',
+        },
       },
     ],
   },
